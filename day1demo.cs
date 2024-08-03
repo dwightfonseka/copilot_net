@@ -7,6 +7,15 @@ using System.Windows.Forms.DataVisualization.Charting;
 public class CodeExercises
 {
     // Exercise 1: Calculate the Mean and Median of a Numeric Array
+
+    private static double CalculateMedian(double[] x)
+    {
+        // Sort the array and calculate the median
+        var sortedX = x.OrderBy(n => n).ToArray();
+        int mid = sortedX.Length / 2;
+        return (sortedX.Length % 2 != 0) ? sortedX[mid] : (sortedX[mid] + sortedX[mid - 1]) / 2;
+    }
+
     public static (double mean, double median) CalculateStatistics(double[] x)
     {
         // Calculate the mean of the array
@@ -17,14 +26,7 @@ public class CodeExercises
 
         // Return the mean and median as a tuple
         return (meanValue, medianValue);
-    }
 
-    private static double CalculateMedian(double[] x)
-    {
-        // Sort the array and calculate the median
-        var sortedX = x.OrderBy(n => n).ToArray();
-        int mid = sortedX.Length / 2;
-        return (sortedX.Length % 2 != 0) ? sortedX[mid] : (sortedX[mid] + sortedX[mid - 1]) / 2;
     }
 
     // Exercise 2: Generate a Sequence of Numbers from 1 to 10
