@@ -51,6 +51,35 @@ public class CodeExercises
         return x.Select(val => (val - avg) * (val - avg)).Average();
     }
 
+
+// Exercise 5: Debug the code
+   using System;
+
+namespace DebugExercise
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numbers = { 1, 2, 3, 4, 5 };
+            int sum = CalculateSum(numbers);
+            Console.WriteLine("The sum of the array is: " + sum);
+        }
+
+        static int CalculateSum(int[] numbers)
+        {
+            int sum = 0;
+            for (int i = 0; i <= numbers.Length; i++)
+            {
+                sum += numbers[i];
+            }
+            return sum;
+        }
+    }
+}
+
+
+
     // Exercise 5: Calculate the Inverse of a Matrix
     public static double[] InvertMatrix(double[] mat)
     {
@@ -79,32 +108,77 @@ public class CodeExercises
         return x.Sum();
     }
 
-    // Exercise 7: Create a Scatter Plot
-    public static void PlotScatter(double[] x, double[] y)
-    {
-        // Create a chart and configure its properties
-        Chart chart = new Chart();
-        ChartArea chartArea = new ChartArea();
-        chart.ChartAreas.Add(chartArea);
 
-        // Add data points to the series from the input arrays
-        Series series = new Series
+
+// Exercise 6 : error handling by adding try-catch
+
+using System;
+using System.IO;
+
+namespace ErrorHandlingExercise
+{
+    class Program
+    {
+        static void Main(string[] args)
         {
-            Name = "Scatter",
-            ChartType = SeriesChartType.Point
-        };
-        
-        for (int i = 0; i < x.Length; i++)
+            Console.Write("Enter a number: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the file path: ");
+            string filePath = Console.ReadLine();
+
+            string fileContent = File.ReadAllText(filePath);
+            Console.WriteLine("File content: " + fileContent);
+
+            int result = 100 / number;
+            Console.WriteLine("100 divided by your number is: " + result);
+        }
+    }
+}
+
+
+
+
+// Exercise 7: optimise the algorithm
+
+using System;
+using System.Collections.Generic;
+
+namespace OptimizationExercise
+{
+    class Program
+    {
+        static void Main(string[] args)
         {
-            series.Points.AddXY(x[i], y[i]);
+            List<int> numbers = new List<int> { 2, 3, 4, 2, 7, 8, 2, 3, 7 };
+            int mostFrequent = FindMostFrequentNumber(numbers);
+            Console.WriteLine("The most frequent number is: " + mostFrequent);
         }
 
-        // Add the series to the chart and display it in a form
-        chart.Series.Add(series);
-        chart.Dock = DockStyle.Fill;
+        static int FindMostFrequentNumber(List<int> numbers)
+        {
+            int maxCount = 0;
+            int mostFrequent = numbers[0];
+            
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                int count = 0;
+                for (int j = 0; j < numbers.Count; j++)
+                {
+                    if (numbers[i] == numbers[j])
+                    {
+                        count++;
+                    }
+                }
 
-        Form form = new Form();
-        form.Controls.Add(chart);
-        Application.Run(form);
+                if (count > maxCount)
+                {
+                    maxCount = count;
+                    mostFrequent = numbers[i];
+                }
+            }
+
+            return mostFrequent;
+        }
     }
 }
