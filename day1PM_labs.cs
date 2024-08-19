@@ -1,6 +1,3 @@
-Here is the extracted C# code from the lab exercises in the document, organized with lab exercise headers, objectives, and explanatory notes included as comments:
-
-```csharp
 // Lab Exercise 8: .NET with Entity Framework for Copilot
 // Objective:
 // By the end of this lab exercise, you will be able to:
