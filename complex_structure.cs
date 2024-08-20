@@ -1,4 +1,4 @@
-﻿// create a C# console app that generates 10 radom numbers from 50 to 100
+// create a C# console app that generates 10 radom numbers from 50 to 100
 // displays the numbers generated in the console
 // calculates the sum, mean of the numbers and displays in the console
 
